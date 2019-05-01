@@ -4,8 +4,8 @@
 ---
 
 ##### Integrantes:
-1. *[Poner aquí Nombre y Apellidos del integrante 1]*
-2. *[Poner aquí Nombre y Apellidos del integrante 2]*
+1. Luis Fernando Carrasco de la Parra
+2. Daniel Pelagio Vázquez
 
 
 ---
