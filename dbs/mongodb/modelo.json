@@ -1,0 +1,11 @@
+//Image post 
+{
+    "_id": "<ObjectId>",
+    "picture":"string",
+    "name": "string",
+    "description": "string",
+    "location": "date",
+    "tags": [
+      "string"
+    ]
+}
