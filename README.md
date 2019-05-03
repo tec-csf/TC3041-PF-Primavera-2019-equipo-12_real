@@ -51,11 +51,11 @@ Como parte de la entrega final del proyecto, se debe incluir la siguiente inform
 
 ## 2. Descripción del proyecto
 
-*[Incluya aquí la descripción del proyecto seleccionado.]*
+El proyecto propuesto es una página web, cuya finalidad es compartir imagenes de tipo artístico (fotografias, dibujos, pinturas, esculturas, etc). La finalidad es tener un solo dashboard principal lleno de imagenes diferentes, sin nada más de información en pantalla. Cuando el usuario hace click en la imagen, se mostrará la información de dicha imagen (el nombre, el autor, dónde fue realizada, una pequeña descripción y tags para identificar el tipo de imagen.  
 
 ## 3. Solución
 
-A continuación aparecen descritos los diferentes elementos que forman parte de la solución del proyecto.
+La información correspondiente a las imagen será guardada utilizando mongoDB, y la información de las sesiones de usuario mediante Redis. 
 
 ### 3.1 Modelos de *bases de datos* utilizados
 
