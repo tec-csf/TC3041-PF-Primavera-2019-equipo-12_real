@@ -6,6 +6,9 @@ import config
 class Images(object):
 
     def __init__(self):
+        '''
+        Para poder usar el URI: python -m pip install pymongo[srv]
+        '''
         client = MongoClient(config.MONGO_URI)
         db = client.AMAYA
         self.collection = db.images
