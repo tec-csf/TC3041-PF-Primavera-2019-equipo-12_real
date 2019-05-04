@@ -12,11 +12,9 @@ def login():
         if request.form['username'] != 'admin' or request.form['pass'] != 'admin':
             error = 'invalid credentials. Please try again.'
         else:
-            return render_template('home.html')
+            return redirect(url_for('home'))
     return render_template('index.html', error=error)
-    
 
-@app.route('/logout')
-def logout():
-    session.pop('logged_in', None)
-    return redirect(url_for('welcome'))
+@app.route('/home')
+def home():
+    return render_template('home.html')  
