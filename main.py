@@ -1,5 +1,6 @@
-from flask import Flask, request, redirect, url_for, render_template, session
+from flask import Flask, request, redirect, url_for, render_template, session, jsonify
 from flask_api import FlaskAPI, status, exceptions
+from backend import api
 import cgi
 import os
 
@@ -17,8 +18,9 @@ def login():
 
 @app.route('/home')
 def home():
-    return render_template('home.html')
-
+    mongodb = api.API()
+    path = mongodb.get()
+    return render_template('home.html', path=path[1]['picture'])
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
