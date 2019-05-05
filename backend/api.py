@@ -18,3 +18,9 @@ class API(object):
             return True
         return False  
 
+    def insertImage(self, owner, path, name, description, location, tags):
+        mongodb = images.Images()
+        query = {"owner":owner,"picture":path,"name": name,"description": description,"location": location,"tags": ["tag1", "tag2"]}
+        result = mongodb.create(query)
+        return result
+

@@ -50,14 +50,14 @@ def home():
 
     if request.method == 'POST':
         print('hola')
-        autor = request.form['Autor']
+        title = request.form['Title']
         lugar = request.form['Lugar']
         desc = request.form['Desc']
-        print(autor)
+        print(title)
         print(lugar)
         print(desc)
         
-        target = os.path.join(APP_ROOT, 'static/images/')
+        target = os.path.join(APP_ROOT, 'static/images')
         if request.method == 'POST':
             #print('hola')
             if not os.path.isdir(target):
@@ -75,8 +75,10 @@ def home():
                     print("Save it to:", destination)
                     upload.save(destination)
                     print('File uploaded')
+                    insertResult = mongodb.insertImage(username, destination, title, desc, lugar, "Test tag")
+
                 return redirect(url_for('home'))
-        return render_template('upload.html')
+        '''return render_template('upload.html')'''
     
     for i in range(len(data)):
         paths.append(data[i]['picture'])
