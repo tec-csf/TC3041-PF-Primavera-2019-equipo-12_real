@@ -5,7 +5,7 @@ from bson import ObjectId
 
 class API(object):
 
-    def list(self):
+    def getAll(self):
         mongodb = images.Images()
         return mongodb.find()
 

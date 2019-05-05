@@ -3,8 +3,13 @@ from flask_api import FlaskAPI, status, exceptions
 from backend import api
 import cgi
 import os
+import jinja2
+
+env = jinja2.Environment()
+env.globals.update(zip=zip)
 
 app = FlaskAPI(__name__)
+app.jinja_env.filters['zip'] = zip
 
 @app.route("/", methods=['GET','POST'])
 def login():
@@ -19,8 +24,19 @@ def login():
 @app.route('/home')
 def home():
     mongodb = api.API()
-    path = mongodb.get()
-    return render_template('home.html', path=path[1]['picture'])
+    data = mongodb.get()
+    paths = []
+    names = []
+    locations = []
+    descriptions = []
+    
+    for i in range(len(data)):
+        paths.append(data[i]['picture'])
+        names.append(data[i]['name'])
+        locations.append(data[i]['location'])
+        descriptions.append(data[i]['description'])
+
+    return render_template('home.html', paths=paths, names=names, locations=locations, descriptions=descriptions)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
