@@ -81,23 +81,23 @@
 								<div>
 									<section>
 										<h2>Informacion</h2>
-										<form method="post" action="#">
-											<div class="fields">
-												<div class="field half">
-													<input type="text" name="name" id="name" placeholder="Titulo imagen" />
-												</div>
-												<div class="field half">
-													<input type="text" name="email" id="email" placeholder="Lugar donde fue tomada la imagen" />
-												</div>
-												<div class="field">
-													<textarea name="message" id="message" rows="4" placeholder="Descripcion"></textarea>
-												</div>
-											</div>
-											<ul class="actions">
-												<li><input type="submit" value="Send" class="primary" /></li>
-												<li><input type="reset" value="Reset" /></li>
-											</ul>
-										</form>
+                                        <form method="POST">
+                                            <div class="fields">
+                                                <div class="field half">
+                                                    <input type="text" name="Autor" id="name" placeholder="Titulo imagen" />
+                                                </div>
+                                                <div class="field half">
+                                                    <input type="text" name="Lugar" id="lugar" placeholder="Lugar donde fue tomada la imagen" />
+                                                </div>
+                                                <div class="field">
+                                                    <textarea name="Desc" id="desc" rows="4" placeholder="Descripcion"></textarea>
+                                                </div>
+                                            </div>
+                                            <ul class="actions">
+                                                <li><input type="submit" value="Send" class="primary" action='/upload' /></li>
+                                                <li><input type="reset" value="Reset" /></li>
+                                            </ul>
+                                        </form>
 									</section>
 								</div>
 							</div>
