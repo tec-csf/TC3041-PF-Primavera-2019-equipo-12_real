@@ -81,7 +81,10 @@
 								<div>
 									<section>
 										<h2>Informacion</h2>
-                                        <form method="POST">
+										<head>
+											<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+										</head>
+                                        <form id="upload-form" method="POST" enctype="multipart/form-data">
                                             <div class="fields">
                                                 <div class="field half">
                                                     <input type="text" name="Autor" id="name" placeholder="Titulo imagen" />
@@ -94,24 +97,14 @@
                                                 </div>
                                             </div>
                                             <ul class="actions">
-                                                <li><input type="submit" value="Send" class="primary" action='/upload' /></li>
-                                                <li><input type="reset" value="Reset" /></li>
-                                            </ul>
-										</form>
-										<head>
-											<title>Upload</title>
-											<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-										</head>
-										<body>
-											
-											<form id="upload-form" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
-												
-												<strong>Files:</strong><br>
+												<li><input type="reset" value="Reset" /></li>
+											</ul>
+											<strong>Files:</strong><br>
 												<input id="file-picker" type="file" name="file" accept="image/*" multiple>
-													<div id="msg"></div>
-													<input type="submit" value="Upload!" id="upload-button" action='/home'>
-											</form>
-										</body>
+													<div id="msg"></div><br>
+												<input type="submit" value="Upload" id="upload-button" action='/home'>
+										</form>
+										
 									</section>
 								</div>
 							</div>

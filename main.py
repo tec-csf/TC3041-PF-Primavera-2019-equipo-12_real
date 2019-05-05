@@ -56,7 +56,27 @@ def home():
         print(autor)
         print(lugar)
         print(desc)
-        return redirect(url_for('upload'))
+        
+        target = os.path.join(APP_ROOT, 'static/images/')
+        if request.method == 'POST':
+            #print('hola')
+            if not os.path.isdir(target):
+                os.mkdir(target)
+            for upload in request.files.getlist("file"):
+                print(upload)
+                print("{} is the file name".format(upload.filename))
+                filename = upload.filename
+                # This is to verify files are supported
+                ext = os.path.splitext(filename)[1]
+                if (ext == ".jpg") or (ext == ".png") or (ext == ".jpeg"):
+                    print("File supported moving on...")
+                    destination = "/".join([target, filename])
+                    print("Accept incoming file:", filename)
+                    print("Save it to:", destination)
+                    upload.save(destination)
+                    print('File uploaded')
+                return redirect(url_for('home'))
+        return render_template('upload.html')
     
     for i in range(len(data)):
         paths.append(data[i]['picture'])
@@ -66,29 +86,6 @@ def home():
 
     
     return render_template('home.html', user=username, paths=paths, names=names, locations=locations, descriptions=descriptions)
-
-@app.route('/upload', methods=['GET','POST'])
-def upload():
-    target = os.path.join(APP_ROOT, 'static/images/')
-    if request.method == 'POST':
-        #print('hola')
-        if not os.path.isdir(target):
-            os.mkdir(target)
-        for upload in request.files.getlist("file"):
-            print(upload)
-            print("{} is the file name".format(upload.filename))
-            filename = upload.filename
-            # This is to verify files are supported
-            ext = os.path.splitext(filename)[1]
-            if (ext == ".jpg") or (ext == ".png") or (ext == ".jpeg"):
-                print("File supported moving on...")
-                destination = "/".join([target, filename])
-                print("Accept incoming file:", filename)
-                print("Save it to:", destination)
-                upload.save(destination)
-                print('File uploaded')
-            return redirect(url_for('home'))
-    return render_template('upload.html')
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
