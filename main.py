@@ -33,6 +33,12 @@ def login():
 
 @app.route('/home')
 def home():
+    ''' Si el usuario ya hizo login, recupera su nombre. Si no ha hecho login y entro directo a /home, regresalo al login screen '''
+    if 'user' in session:
+        username = session['user']
+    else: 
+        return redirect(url_for('login')) 
+
     mongodb = api.API()
     data = mongodb.get()
     paths = []
@@ -46,7 +52,8 @@ def home():
         locations.append(data[i]['location'])
         descriptions.append(data[i]['description'])
 
-    return render_template('home.html', user=session['user'], paths=paths, names=names, locations=locations, descriptions=descriptions)
+    
+    return render_template('home.html', user=username, paths=paths, names=names, locations=locations, descriptions=descriptions)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
