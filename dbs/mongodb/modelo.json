@@ -1,6 +1,7 @@
 //Image post 
 {
     "_id": "<ObjectId>",
+    "owner":"string (_id users)",
     "picture":"string",
     "name": "string",
     "description": "string",
@@ -8,4 +9,12 @@
     "tags": [
       "string"
     ]
+}
+
+//Users
+{
+  "_id": "string",
+  "nombre":"string",
+  "apellido_m": "string",
+  "apellido_p": "string"
 }
