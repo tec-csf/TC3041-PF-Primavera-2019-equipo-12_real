@@ -11,16 +11,24 @@ env.globals.update(zip=zip)
 app = FlaskAPI(__name__)
 app.jinja_env.filters['zip'] = zip
 
+app.secret_key = "super secret key" # La llave para la sesion
+
 @app.route("/", methods=['GET','POST'])
 def login():
     s = api.API()
     error = None
-    
+
     if request.method == 'POST':
-        if s.verifyPassword(request.form['username'], request.form['pass']) == False:
-                error = '  Invalid credentials. Please try again.'
+        username = request.form['username']
+        password = request.form['pass']
+
+        if s.verifyPassword(username, password) == False:
+            error = '  Invalid credentials. Please try again.'
+
         else:
-                return redirect(url_for('home'))
+            session['logged_in'] = True
+            session['user'] = request.form['username']
+            return redirect(url_for('home'))
     return render_template('index.html', error=error)
 
 @app.route('/home')
@@ -38,7 +46,7 @@ def home():
         locations.append(data[i]['location'])
         descriptions.append(data[i]['description'])
 
-    return render_template('home.html', paths=paths, names=names, locations=locations, descriptions=descriptions)
+    return render_template('home.html', user=session['user'], paths=paths, names=names, locations=locations, descriptions=descriptions)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
