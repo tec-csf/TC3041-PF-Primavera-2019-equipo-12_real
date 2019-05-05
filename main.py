@@ -13,12 +13,14 @@ app.jinja_env.filters['zip'] = zip
 
 @app.route("/", methods=['GET','POST'])
 def login():
+    s = api.API()
     error = None
+    
     if request.method == 'POST':
-        if request.form['username'] != 'admin' or request.form['pass'] != 'admin':
-            error = 'invalid credentials. Please try again.'
+        if s.verifyPassword(request.form['username'], request.form['pass']) == False:
+                error = '  Invalid credentials. Please try again.'
         else:
-            return redirect(url_for('home'))
+                return redirect(url_for('home'))
     return render_template('index.html', error=error)
 
 @app.route('/home')

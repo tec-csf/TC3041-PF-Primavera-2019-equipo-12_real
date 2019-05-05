@@ -16,7 +16,7 @@ class Sessions(object):
                 port=config.REDIS_PORT)
 
 
-    def h_password(self,password):
+    def get_hashed_password(self,password):
 
         hashed_password = hashlib.sha256(password.encode('utf-8')).hexdigest()
 
@@ -29,6 +29,6 @@ class Sessions(object):
 
     def get_user_password(self,user):
 
-        password=self.instance.hget(user,"password")
+        password=self.instance.get(user)
 
         return password
