@@ -44,6 +44,7 @@ def home():
     mongodb = api.API()
     data = mongodb.get()
     paths = []
+    owners = []
     names = []
     locations = []
     descriptions = []
@@ -58,6 +59,7 @@ def home():
         print(desc)
         
         target = os.path.join(APP_ROOT, 'static/images')
+        target_db = 'static/images'
         if request.method == 'POST':
             #print('hola')
             if not os.path.isdir(target):
@@ -71,23 +73,25 @@ def home():
                 if (ext == ".jpg") or (ext == ".png") or (ext == ".jpeg"):
                     print("File supported moving on...")
                     destination = "/".join([target, filename])
+                    destination_db = "/".join([target_db, filename])
                     print("Accept incoming file:", filename)
                     print("Save it to:", destination)
                     upload.save(destination)
                     print('File uploaded')
-                    insertResult = mongodb.insertImage(username, destination, title, desc, lugar, "Test tag")
+                    insertResult = mongodb.insertImage(username, destination_db, title, desc, lugar, "Test tag")
 
                 return redirect(url_for('home'))
         '''return render_template('upload.html')'''
     
     for i in range(len(data)):
         paths.append(data[i]['picture'])
+        owners.append(data[i]['owner'])
         names.append(data[i]['name'])
         locations.append(data[i]['location'])
         descriptions.append(data[i]['description'])
 
     
-    return render_template('home.html', user=username, paths=paths, names=names, locations=locations, descriptions=descriptions)
+    return render_template('home.html', user=username, paths=paths, owners=owners, names=names, locations=locations, descriptions=descriptions)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)

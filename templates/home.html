@@ -30,12 +30,14 @@
 
 				<!-- Main -->
 					<div id="main">
-						{%for paths, names, locations, descriptions in paths | zip(names, locations, descriptions)%}
+						{%for paths, owners, names, locations, descriptions in paths | zip(owners, names, locations, descriptions)%}
 						<article class="thumb">
 							<a href="{{paths}}" class="image"><img src="{{paths}}" alt="" /></a>
 							<h2>{{names}}</h2>
-							<p>{{locations}}</p>
+							<h3>{{locations}}</h3>
 							<p>{{descriptions}}</p>
+							<p>{{owners}}</p>
+							
 						</article>
 						{%endfor%}
 					
