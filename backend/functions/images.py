@@ -1,7 +1,7 @@
 from pymongo import MongoClient
 from bson import ObjectId
 from flask import Flask, request, url_for, jsonify
-import config
+from backend import config
 
 class Images(object):
 
@@ -12,8 +12,6 @@ class Images(object):
         client = MongoClient(config.MONGO_URI)
         db = client.AMAYA
         self.collection = db.images
-
-
 
     def find(self):
         """

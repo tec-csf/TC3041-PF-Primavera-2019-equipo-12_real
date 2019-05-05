@@ -1,4 +1,5 @@
-from functions import images, sessions
+from .functions import images
+from .functions import sessions
 
 class API(object):
 
