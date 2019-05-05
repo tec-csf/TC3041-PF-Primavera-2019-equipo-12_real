@@ -4,7 +4,8 @@ class API(object):
 
     def get(self):
         mongodb = images.Images()
-        return mongodb.find()
+        allImages = mongodb.find()
+        return allImages
 
 
     def verifyPassword(self,user,password):

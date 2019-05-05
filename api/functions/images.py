@@ -13,8 +13,6 @@ class Images(object):
         db = client.AMAYA
         self.collection = db.images
 
-
-
     def find(self):
         """
         Obtener todos las imagenes
