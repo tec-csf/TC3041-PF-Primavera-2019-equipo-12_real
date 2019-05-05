@@ -50,34 +50,23 @@ def home():
     descriptions = []
 
     if request.method == 'POST':
-        print('hola')
         title = request.form['Title']
         lugar = request.form['Lugar']
         desc = request.form['Desc']
-        print(title)
-        print(lugar)
-        print(desc)
         
         target = os.path.join(APP_ROOT, 'static/images')
         target_db = 'static/images'
         if request.method == 'POST':
-            #print('hola')
             if not os.path.isdir(target):
                 os.mkdir(target)
             for upload in request.files.getlist("file"):
-                print(upload)
-                print("{} is the file name".format(upload.filename))
                 filename = upload.filename
                 # This is to verify files are supported
                 ext = os.path.splitext(filename)[1]
                 if (ext == ".jpg") or (ext == ".png") or (ext == ".jpeg"):
-                    print("File supported moving on...")
                     destination = "/".join([target, filename])
                     destination_db = "/".join([target_db, filename])
-                    print("Accept incoming file:", filename)
-                    print("Save it to:", destination)
                     upload.save(destination)
-                    print('File uploaded')
                     insertResult = mongodb.insertImage(username, destination_db, title, desc, lugar, "Test tag")
 
                 return redirect(url_for('home'))
