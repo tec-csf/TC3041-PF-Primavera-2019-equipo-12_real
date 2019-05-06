@@ -11,7 +11,7 @@ env.globals.update(zip=zip)
 app = FlaskAPI(__name__)
 app.jinja_env.filters['zip'] = zip
 
-app.secret_key = "super secret key" # La llave para la sesion
+app.secret_key = "HnP9fZwzRQQgpYLwAY3L6WqeB8sqbar9W24" # La llave para la sesion
 
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 
@@ -48,6 +48,7 @@ def home():
     names = []
     locations = []
     descriptions = []
+    tags = []
 
     if request.method == 'POST' and 'Title' in request.form:
         title = request.form['Title']
@@ -84,9 +85,10 @@ def home():
         names.append(data[i]['name'])
         locations.append(data[i]['location'])
         descriptions.append(data[i]['description'])
+        tags.append(data[i]['tags'])
 
     
-    return render_template('home.html', user=username, paths=paths, owners=owners, names=names, locations=locations, descriptions=descriptions)
+    return render_template('home.html', user=username, paths=paths, owners=owners, names=names, locations=locations, descriptions=descriptions, tags=tags)
 
 @app.route("/signUp", methods=['POST','GET'])
 def signUp():

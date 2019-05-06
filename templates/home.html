@@ -31,14 +31,14 @@
 
 				<!-- Main -->
 					<div id="main">
-						{%for paths, owners, names, locations, descriptions in paths | zip(owners, names, locations, descriptions)%}
+						{%for paths, owners, names, locations, descriptions, tags in paths | zip(owners, names, locations, descriptions, tags)%}
 						<article class="thumb">
 							<a href="{{paths}}" class="image"><img src="{{paths}}" alt="" /></a>
 							<h2>{{names}}</h2>
 							<h3>{{locations}}</h3>
 							<p>{{descriptions}}</p>
+							<p>{{tags}}</p>
 							<p>{{owners}}</p>
-							
 						</article>
 						{%endfor%}
 					
@@ -49,8 +49,8 @@
 						<div class="inner split">
 							<div>
 								<section>
-									<h2>Magna feugiat sed adipiscing</h2>
-									<p>Nulla consequat, ex ut suscipit rutrum, mi dolor tincidunt erat, et scelerisque turpis ipsum eget quis orci mattis aliquet. Maecenas fringilla et ante at lorem et ipsum. Dolor nulla eu bibendum sapien. Donec non pharetra dui. Nulla consequat, ex ut suscipit rutrum, mi dolor tincidunt erat, et scelerisque turpis ipsum.</p>
+									<h2>Mi perfil</h2>
+									<p></p>
 								</section>
 								<section>
 									<h2>Follow me on ...</h2>
