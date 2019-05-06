@@ -11,7 +11,7 @@ env.globals.update(zip=zip)
 app = FlaskAPI(__name__)
 app.jinja_env.filters['zip'] = zip
 
-app.secret_key = "HnP9fZwzRQQgpYLwAY3L6WqeB8sqbar9W24" # La llave para la sesion
+app.secret_key = "super secret key" # La llave para la sesion
 
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 
