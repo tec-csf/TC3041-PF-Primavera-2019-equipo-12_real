@@ -123,5 +123,10 @@ def signUp():
                 error = 'You have to fill every section!'
     return render_template('signup.html', error=error)
 
+@app.route("/logOut")
+def logOut():
+    session.clear()
+    return redirect(url_for('login'))
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
