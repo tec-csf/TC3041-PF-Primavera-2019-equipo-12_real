@@ -24,6 +24,7 @@
 							<ul>
 								<li><a href="#footer" class="icon fa-info-circle">{{user}}</a></li>
 								<li><a href="#footer2" class="icon fa-info-circle">Subir imagen</a></li>
+								<li><a href="#footer3" class="icon fa-info-circle">Filtrar imagenes</a></li>
 							</ul>
 						</nav>
 					</header>
@@ -107,6 +108,38 @@
 												<input type="submit" value="Upload" id="upload-button" action='/home'>
 										</form>
 										
+									</section>
+								</div>
+							</div>
+						</footer>
+
+					<footer id="footer3" class="panel">
+							<div class="inner split">
+								<div>
+									<section>
+										<h2>Visualizacion de imagenes</h2>
+										<p>En esta seccion puede seleccionar filtros y visualizar solo las imagenes que quiera. Puede hacer filtrado por el Lugar donde fue tomada la foto, por el Usuario, por el Nombre o por algun Tag </p>
+									</section>
+									<section>
+										<form method="POST">
+											<div class="fields">
+												<div class="field half">
+													<input type="text" name="Title_filter" id="title" placeholder="Por titulo" />
+												</div>
+												<div class="field half">
+													<input type="text" name="Lugar_filter" id="lugar" placeholder="Por lugar" />
+												</div>
+												<div class="field half">
+													<input type="text" name="Owner" id="owner" placeholder="Por usuario" />
+												</div>
+												<div class="field half">
+													<input type="text" name="Tag" id="tag" placeholder="Por tag" />
+												</div>
+											</div>
+											<ul class="actions">
+												<li><input type="submit" value="Search" action='/home' /></li>
+											</ul>
+										</form>
 									</section>
 								</div>
 							</div>

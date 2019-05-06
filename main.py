@@ -49,29 +49,36 @@ def home():
     locations = []
     descriptions = []
 
-    if request.method == 'POST':
+    if request.method == 'POST' and 'Title' in request.form:
         title = request.form['Title']
         lugar = request.form['Lugar']
         desc = request.form['Desc']
-        
+
         target = os.path.join(APP_ROOT, 'static/images')
         target_db = 'static/images'
-        if request.method == 'POST':
-            if not os.path.isdir(target):
-                os.mkdir(target)
-            for upload in request.files.getlist("file"):
-                filename = upload.filename
-                # This is to verify files are supported
-                ext = os.path.splitext(filename)[1]
-                if (ext == ".jpg") or (ext == ".png") or (ext == ".jpeg"):
-                    destination = "/".join([target, filename])
-                    destination_db = "/".join([target_db, filename])
-                    upload.save(destination)
-                    insertResult = mongodb.insertImage(username, destination_db, title, desc, lugar, "Test tag")
+        if not os.path.isdir(target):
+            os.mkdir(target)
+        for upload in request.files.getlist("file"):
+            filename = upload.filename
+            # This is to verify files are supported
+            ext = os.path.splitext(filename)[1]
+            if (ext == ".jpg") or (ext == ".png") or (ext == ".jpeg"):
+                destination = "/".join([target, filename])
+                destination_db = "/".join([target_db, filename])
+                upload.save(destination)
+                insertResult = mongodb.insertImage(username, destination_db, title, desc, lugar, "Test tag")
 
-                return redirect(url_for('home'))
-        '''return render_template('upload.html')'''
-    
+        return redirect(url_for('home'))
+
+    if request.method == 'POST' and 'Title_filter' in request.form:
+        title = request.form['Title_filter']
+        lugar = request.form['Lugar_filter']
+        owner = request.form['Owner']
+        tag = request.form['Tag']
+        
+        data = mongodb.getByFilter(title,lugar,owner,tag)
+        
+        
     for i in range(len(data)):
         paths.append(data[i]['picture'])
         owners.append(data[i]['owner'])

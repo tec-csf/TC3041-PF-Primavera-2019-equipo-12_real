@@ -13,11 +13,25 @@ class Images(object):
         db = client.AMAYA
         self.collection = db.images
 
-    def find(self):
+    def findAll(self):
         """
         Obtener todos las imagenes
         """
         cursor = self.collection.find()
+
+        images = []
+
+        for image in cursor:
+            image['_id'] = str(image['_id']) 
+            images.append(image)
+
+        return images
+
+    def findAllWithFilter(self, i_filter):
+        """
+        Obtener todos las imagenes
+        """
+        cursor = self.collection.find(i_filter)
 
         images = []
 

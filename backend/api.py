@@ -5,7 +5,13 @@ class API(object):
 
     def get(self):
         mongodb = images.Images()
-        allImages = mongodb.find()
+        allImages = mongodb.findAll()
+        return allImages
+
+    def getByFilter(self,titulo,lugar,usuario,tag):
+        mongodb = images.Images()
+        i_filter = {"name":titulo,"location":lugar,"owner":usuario}
+        allImages = mongodb.findAllWithFilter(i_filter)
         return allImages
 
 
