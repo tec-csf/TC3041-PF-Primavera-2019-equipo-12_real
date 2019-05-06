@@ -14,7 +14,7 @@ class API(object):
 
         user_password = s.get_user_password(user)
         
-        if user_password != None and user_password == password:
+        if user_password.decode() != None and user_password.decode() == password:
             return True
         return False  
 
