@@ -1,0 +1,183 @@
+<!DOCTYPE HTML>
+<!--
+	Multiverse by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>AMAYA</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}"/>
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><strong>AMAYA</strong></h1>
+						<nav>
+							<ul>
+								<li><a href="#footer" class="icon fa-info-circle">{{user}}</a></li>
+								<li><a href="#footer2" class="icon fa-info-circle">Subir imagen</a></li>
+								<li><a href="#footer3" class="icon fa-info-circle">Filtrar imagenes</a></li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+						{%for paths, owners, names, locations, descriptions, tags in paths | zip(owners, names, locations, descriptions, tags)%}
+						<article class="thumb">
+							<a href="{{paths}}" class="image"><img src="{{paths}}" alt="" /></a>
+							<h2>{{names}}</h2>
+							<h3>{{locations}}</h3>
+							<p>{{descriptions}}</p>
+							<p>{{tags}}</p>
+							<p>{{owners}}</p>
+						</article>
+						{%endfor%}
+					
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer" class="panel">
+						<div class="inner split">
+							<div>
+								<section>
+									<h2>Mi perfil</h2>
+									<p></p>
+									<ul class="actions">
+                                        <li><a href="/logOut" class="txt3">
+                                            Sign Out
+                                        </a></li>
+                                    </ul>
+								</section>
+								<section>
+									<h2>Follow me on ...</h2>
+									<ul class="icons">
+										<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+										<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="#" class="icon fa-github"><span class="label">GitHub</span></a></li>
+										<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+										<li><a href="#" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+									</ul>
+								</section>
+								<p class="copyright">
+									&copy; Unttled. Design: <a href="http://html5up.net">HTML5 UP</a>.
+								</p>
+							</div>
+						</div>
+					</footer>
+
+					<footer id="footer2" class="panel">
+							<div class="inner split">
+								<div>
+									<section>
+										<h2>Nueva imagen</h2>
+										<p>Escriba la informacion de su nueva fotografia</p>
+									</section>
+									<p class="copyright">
+										&copy; Unttled. Design: <a href="http://html5up.net">HTML5 UP</a>.
+									</p>
+								</div>
+								<div>
+									<section>
+										<h2>Informacion</h2>
+										<head>
+											<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+										</head>
+                                        <form id="upload-form" method="POST" enctype="multipart/form-data">
+                                            <div class="fields">
+                                                <div class="field half">
+                                                    <input type="text" name="Title" id="title" placeholder="Titulo imagen" />
+                                                </div>
+                                                <div class="field half">
+                                                    <input type="text" name="Lugar" id="lugar" placeholder="Lugar donde fue tomada la imagen" />
+                                                </div>
+                                                <div class="field">
+                                                    <textarea name="Desc" id="desc" rows="4" placeholder="Descripcion"></textarea>
+												</div>
+												<div class="field half">
+                                                    <input type="text" name="Tags" id="tags" placeholder="Tags" />
+                                                </div>
+                                            </div>
+                                            <ul class="actions">
+												<li><input type="reset" value="Reset" /></li>
+											</ul>
+											<strong>Files:</strong><br>
+												<input id="file-picker" type="file" name="file" accept="image/*" multiple>
+													<div id="msg"></div><br>
+												<input type="submit" value="Upload" id="upload-button" action='/home'>
+										</form>
+										
+									</section>
+								</div>
+							</div>
+						</footer>
+
+					<footer id="footer3" class="panel">
+							<div class="inner split">
+								<div>
+									<section>
+										<h2>Visualizacion de imagenes</h2>
+										<p>En esta seccion puede seleccionar filtros y visualizar solo las imagenes que quiera. Puede hacer filtrado por el Lugar donde fue tomada la foto, por el Usuario o por algun Tag </p>
+									</section>
+									<section>
+										<form method="POST">
+											<div class="fields">
+												<div class="field half">
+													<input type="text" name="Lugar_filter" id="lugar" placeholder="Por lugar" />
+												</div>
+												<div class="field half">
+													<input type="text" name="Owner" id="owner" placeholder="Por usuario" />
+												</div>
+												<div class="field half">
+													<input type="text" name="Tag" id="tag" placeholder="Por tag" />
+												</div>
+											</div>
+											<ul class="actions">
+												<li><input type="submit" value="Search" action='/home' /></li>
+											</ul>
+										</form>
+									</section>
+								</div>
+							</div>
+						</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="{{url_for('static', filename='assets/js/jquery.min.js')}}"></script>
+			<script src="{{url_for('static', filename='assets/js/jquery.poptrox.min.js')}}"></script>
+			<script src="{{url_for('static', filename='assets/js/browser.min.js')}}"></script>
+			<script src="{{url_for('static', filename='assets/js/breakpoints.min.js')}}"></script>
+			<script src="{{url_for('static', filename='assets/js/util.js')}}"></script>
+			<script src="{{url_for('static', filename='assets/js/main.js')}}"></script>
+			<script>
+				$("#file-picker").change(function(){
+										 var input = document.getElementById('file-picker');
+										 for (var i=0; i<input.files.length; i++)
+										 {
+										 //koala.jpg, koala.JPG substring(index) lastIndexOf('a') koala.1.jpg
+										 var ext= input.files[i].name.substring(input.files[i].name.lastIndexOf('.')+1).toLowerCase()
+										 if ((ext == 'jpg') || (ext == 'png') || (ext == 'jpeg'))
+										 {
+										 $("#msg").text("Files are supported")
+										 }
+										 else
+										 {
+										 $("#msg").text("Files are NOT supported")
+										 document.getElementById("file-picker").value ="";
+										 }
+										 }
+										 } );
+				</script>
+
+	</body>
+</html>
