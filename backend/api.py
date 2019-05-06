@@ -43,7 +43,7 @@ class API(object):
 
     def insertImage(self, owner, path, name, description, location, tags):
         mongodb = images.Images()
-        query = {"owner":owner,"picture":path,"name": name,"description": description,"location": location,"tags": ["tag1", "tag2"]}
+        query = {"owner":owner,"picture":path,"name": name,"description": description,"location": location,"tags": tags}
         result = mongodb.create(query)
         return result
 

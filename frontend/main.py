@@ -4,6 +4,8 @@ from backend import api
 import cgi
 import os
 import jinja2
+''' para separar un string por espacios o comas '''
+import re 
 
 env = jinja2.Environment()
 env.globals.update(zip=zip)
@@ -54,6 +56,7 @@ def home():
         title = request.form['Title']
         lugar = request.form['Lugar']
         desc = request.form['Desc']
+        tags = request.form['Tags']
 
         target = os.path.join(APP_ROOT, 'static/images')
         target_db = 'static/images'
@@ -67,7 +70,8 @@ def home():
                 destination = "/".join([target, filename])
                 destination_db = "/".join([target_db, filename])
                 upload.save(destination)
-                insertResult = mongodb.insertImage(username, destination_db, title, desc, lugar, "Test tag")
+                split_tags = re.split('; |, | ', tags)
+                insertResult = mongodb.insertImage(username, destination_db, title, desc, lugar, split_tags)
 
         return redirect(url_for('home'))
 
