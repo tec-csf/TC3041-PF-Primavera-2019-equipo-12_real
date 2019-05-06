@@ -70,13 +70,12 @@ def home():
 
         return redirect(url_for('home'))
 
-    if request.method == 'POST' and 'Title_filter' in request.form:
-        title = request.form['Title_filter']
+    if request.method == 'POST' and 'Lugar_filter' in request.form:
         lugar = request.form['Lugar_filter']
         owner = request.form['Owner']
         tag = request.form['Tag']
         
-        data = mongodb.getByFilter(title,lugar,owner,tag)
+        data = mongodb.getByFilter(lugar,owner,tag)
         
         
     for i in range(len(data)):

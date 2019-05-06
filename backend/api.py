@@ -9,9 +9,25 @@ class API(object):
         allImages = mongodb.findAll()
         return allImages
 
-    def getByFilter(self,titulo,lugar,usuario,tag):
+    def getByFilter(self,lugar,usuario,tag):
         mongodb = images.Images()
-        i_filter = {"name":titulo,"location":lugar,"owner":usuario}
+        i_filter = {}
+
+        if lugar == "" and tag == "" and usuario != "":
+            i_filter = {"owner":usuario}
+        elif lugar != "" and tag == "" and usuario == "":
+            i_filter = {"location":lugar}
+        elif lugar != "" and tag == "" and usuario != "":
+            i_filter = {"location":lugar,"owner":usuario}
+        elif lugar == "" and tag != "" and usuario == "":
+            i_filter = {"tags":tag}
+        elif lugar == "" and tag != "" and usuario != "":
+            i_filter = {"owner":usuario, "tags":tag}
+        elif lugar != "" and tag != "" and usuario == "":
+            i_filter = {"location":lugar,"tags":tag}
+        elif lugar != "" and tag != "" and usuario != "":
+            i_filter = {"location":lugar, "owner":usuario, "tags":tag}
+
         allImages = mongodb.findAllWithFilter(i_filter)
         return allImages
 
