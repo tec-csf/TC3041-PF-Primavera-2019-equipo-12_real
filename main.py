@@ -89,5 +89,38 @@ def home():
     
     return render_template('home.html', user=username, paths=paths, owners=owners, names=names, locations=locations, descriptions=descriptions)
 
+@app.route("/signUp", methods=['POST','GET'])
+def signUp():
+    error = None
+    r = api.API()
+    
+    if request.method == 'POST':
+        name = request.form['name']
+        middlename = request.form['middlename']
+        lastname = request.form['lastname']
+        email = request.form['email']
+        password = request.form['password']
+        password2 = request.form['re_password']
+        mongodb = api.API()
+        s = api.API()
+        
+        if password != password2:
+            error = 'Passwords do not match! Try again!'
+        if password == password2:
+            if len(password) < 5:
+                error = 'Passwords length must be at least 5 characters long!'
+            elif (len(name) > 0 and len(middlename) > 0 and len(lastname) > 0):
+                #do something
+                insertUser = mongodb.insertUserMongo(name, middlename, lastname, email)
+                if(insertUser != 'abort'):
+                    s.insertUserRedis(email,password)
+                    print('good')
+                    return redirect(url_for('login'))
+                else:
+                    error = 'Email already exists! Try again!'
+            else:
+                error = 'You have to fill every section!'
+    return render_template('signup.html', error=error)
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)

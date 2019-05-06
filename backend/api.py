@@ -1,4 +1,5 @@
 from .functions import images
+from .functions import users
 from .functions import sessions
 
 class API(object):
@@ -20,7 +21,7 @@ class API(object):
 
         user_password = s.get_user_password(user)
         
-        if user_password.decode() != None and user_password.decode() == password:
+        if user_password != None and user_password.decode() == password:
             return True
         return False  
 
@@ -30,3 +31,18 @@ class API(object):
         result = mongodb.create(query)
         return result
 
+
+    def insertUserMongo(self, name, middlename, lastname, email):
+        mongodb = users.Users()
+        existe = mongodb.findOne(email)
+        
+        if existe == None:
+            query = {"nombre":name,"apellido_m":middlename,"apellido_p": lastname,"_id": email}
+            result = mongodb.create(query)
+        else:
+            result = 'abort'
+        return result
+
+    def insertUserRedis(self, user, password):
+        s = sessions.Sessions()
+        s.set_user(user, password)

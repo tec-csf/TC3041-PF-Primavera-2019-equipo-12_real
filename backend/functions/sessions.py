@@ -24,7 +24,7 @@ class Sessions(object):
     
     def set_user(self,user,password):
 
-        self.instance.hset(user,"password",Sessions.hashed_pass(self,password))
+        self.instance.set(user,password)
 
 
     def get_user_password(self,user):
