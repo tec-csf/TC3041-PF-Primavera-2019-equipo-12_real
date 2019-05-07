@@ -35,7 +35,7 @@ class Users(object):
         """
             Eliminar un usuario
             """
-        result = self.collection.delete_one({'_id': ObjectId(id)})
+        result = self.collection.delete_one({'_id': id})
         
         return result
 

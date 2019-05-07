@@ -132,5 +132,15 @@ def logOut():
     session.clear()
     return redirect(url_for('login'))
 
+@app.route("/delete")
+def delete():
+    username = session['user']
+    r = api.API()
+    r.removeUserRedis(username)
+    r.removeImage(username)
+    r.removeUserMongo(username)
+    session.clear()
+    return redirect(url_for('login'))
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0")

@@ -68,3 +68,11 @@ class Images(object):
         result = self.collection.delete_one({'_id': ObjectId(id)})
 
         return result
+
+    def deleteAll(self, id):
+        """
+            Eliminar todas las imágenes
+            """
+        result = self.collection.delete_many({'owner': id})
+        
+        return result

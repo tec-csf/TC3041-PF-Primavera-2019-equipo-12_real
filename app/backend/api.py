@@ -46,7 +46,10 @@ class API(object):
         query = {"owner":owner,"picture":path,"name": name,"description": description,"location": location,"tags": tags}
         result = mongodb.create(query)
         return result
-
+    
+    def removeImage(self, owner):
+        mongodb = images.Images()
+        mongodb.deleteAll(owner)
 
     def insertUserMongo(self, name, middlename, lastname, email):
         mongodb = users.Users()
@@ -62,3 +65,15 @@ class API(object):
     def insertUserRedis(self, user, password):
         s = sessions.Sessions()
         s.set_user(user, password)
+
+    def removeUserMongo(self, email):
+        mongodb = users.Users()
+        mongodb.delete(email)
+    
+    def insertUserRedis(self, user, password):
+        s = sessions.Sessions()
+        s.set_user(user, password)
+    
+    def removeUserRedis(self, user):
+        s = sessions.Sessions()
+        s.delete_user(user)

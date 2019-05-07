@@ -32,3 +32,6 @@ class Sessions(object):
         password=self.instance.get(user)
 
         return password
+
+    def delete_user(self, user):
+        self.instance.delete(user)
