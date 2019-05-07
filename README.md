@@ -103,7 +103,11 @@ La información correspondiente a las imagen será guardada utilizando mongoDB, 
 
 ## 3.6 Pasos a seguir para utilizar el proyecto
 
-*[Incluya aquí una guía paso a paso para poder utilizar el proyecto, desde la clonación del repositorio hasta el despliegue de la solución en una plataforma en la nube.]*
+1. Clonar el repositorio con git clone o descargarlo.
+2. Entrar a la carpeta app con el comando: 'cd app'
+3. Crear la imagen de docker con el comando: 'sudo docker build -t test-app:v1 .'
+4. Ejecutar la imagen y crear un contenedor con el comando: 'sudo docker run --name amaya -p 5000:5000 test-app:v1'
+5. Entrar al link: 'localhost:5000'
 
 ## 4. Referencias
 
