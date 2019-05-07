@@ -111,10 +111,10 @@ La información correspondiente a las imagen será guardada utilizando mongoDB, 
 
 ## 4. Referencias
 
-http://flask.pocoo.org/docs/dev/quickstart/
-https://api.mongodb.com/python/current/
-https://docs.redislabs.com/latest/rc/quick-setup-redis-cloud/
-https://docs.docker.com/engine/reference/builder/
-http://jinja.pocoo.org/docs/2.10/
-https://www.w3schools.com/html/
+http://flask.pocoo.org/docs/dev/quickstart/  
+https://api.mongodb.com/python/current/  
+https://docs.redislabs.com/latest/rc/quick-setup-redis-cloud/  
+https://docs.docker.com/engine/reference/builder/  
+http://jinja.pocoo.org/docs/2.10/  
+https://www.w3schools.com/html/  
 
