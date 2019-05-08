@@ -34,10 +34,11 @@ class API(object):
 
     def verifyPassword(self,user,password):
         s = sessions.Sessions()
-
-        user_password = s.get_user_password(user)
         
-        if user_password != None and user_password.decode() == password:
+        user_password = s.get_user_password(user)
+        h_passwd = s.get_hashed_password(password)
+        
+        if user_password != None and user_password.decode() == h_passwd:
             return True
         return False  
 

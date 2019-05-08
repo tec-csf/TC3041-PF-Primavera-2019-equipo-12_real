@@ -23,8 +23,8 @@ class Sessions(object):
         return hashed_password
     
     def set_user(self,user,password):
-
-        self.instance.set(user,password)
+        h_passwd = hashlib.sha256(password.encode('utf-8')).hexdigest()
+        self.instance.set(user,h_passwd)
 
 
     def get_user_password(self,user):
