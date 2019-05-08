@@ -24,7 +24,7 @@
 							<ul>
 								<li><a href="#footer">{{user}}</a></li>
 								<li><a href="#footer2">Subir imagen</a></li>
-								<li><a href="#footer3">Filtrar imagenes</a></li>
+								<li><a href="#footer3">Fíltrar imágenes</a></li>
 							</ul>
 						</nav>
 					</header>
@@ -71,7 +71,7 @@
                                 <ul class="actions">
                                     <li>
                                         <a href ='/delete' onclick="if(confirm('Estas seguro que quieres borrar tu cuenta? Todas tus imagenes seran eliminadas!')) return true; else return false;">
-                                            <center>Delete Account</center>
+                                            <center>Eliminar cuenta</center>
                                         </a>
                                     </li>
                                     
@@ -81,12 +81,12 @@
 								<section>
 									<h2>Borrar Imagen</h2>
 									<head>
-										<p>Escriba el nombre de la imagen que desea borrar. Todas las imagenes que haya subido con este nombre seran eliminadas.</p>
+										<p>Escriba el nombre de la imagen que desea borrar. Todas las imágenes que haya subido con este nombre serán eliminadas.</p>
 									</head>
 									<form id="upload-form" method="POST" enctype="multipart/form-data">
 										<div class="fields">
 											<div class="field half">
-												<input type="text" name="Title_borrar" id="title" placeholder="Titulo" />
+												<input type="text" name="Title_borrar" id="title" placeholder="Título" />
 											</div>
 									
 										</div>
@@ -107,28 +107,25 @@
 								<div>
 									<section>
 										<h2>Nueva imagen</h2>
-										<p>Escriba la informacion de su nueva fotografia. Es recomendable subir imagenes que contengan todos los campos, ya que la experiencia de usuario se explota al maximo cuando hay informacion relevante acerca de su fotografia. </p>
+										<p>Escriba la información de su nueva fotografía. Es recomendable subir imágenes que contengan todos los campos, ya que la experiencia de usuario se explota al máximo cuando hay información relevante acerca de su fotografía. </p>
 									</section>
-									<p class="copyright">
-										&copy; Unttled. Design: <a href="http://html5up.net">HTML5 UP</a>.
-									</p>
 								</div>
 								<div>
 									<section>
-										<h2>Informacion</h2>
+										<h2>Información</h2>
 										<head>
 											<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 										</head>
                                         <form id="upload-form" method="POST" enctype="multipart/form-data">
                                             <div class="fields">
                                                 <div class="field half">
-                                                    <input type="text" name="Title" id="title" placeholder="Titulo imagen" />
+                                                    <input type="text" name="Title" id="title" placeholder="Título imagen" />
                                                 </div>
                                                 <div class="field half">
                                                     <input type="text" name="Lugar" id="lugar" placeholder="Lugar donde fue tomada la imagen" />
                                                 </div>
                                                 <div class="field">
-                                                    <textarea name="Desc" id="desc" rows="4" placeholder="Descripcion"></textarea>
+                                                    <textarea name="Desc" id="desc" rows="4" placeholder="Descripción"></textarea>
 												</div>
 												<div class="field half">
                                                     <input type="text" name="Tags" id="tags" placeholder="Tags" />
@@ -140,7 +137,7 @@
 											<strong>Files:</strong><br>
 												<input id="file-picker" type="file" name="file" accept="image/*" multiple>
 													<div id="msg"></div><br>
-												<input type="submit" value="Upload" id="upload-button" action='/home'>
+												<input type="submit" value="Subir" id="upload-button" action='/home'>
 										</form>
 										
 									</section>
@@ -152,8 +149,8 @@
 							<div class="inner split">
 								<div>
 									<section>
-										<h2>Visualizacion de imagenes</h2>
-										<p>En esta seccion puede seleccionar filtros y visualizar solo las imagenes que quiera. Puede hacer filtrado por el Lugar donde fue tomada la foto, por el Usuario o por algun Tag </p>
+										<h2>Visualización de imágenes</h2>
+										<p>En esta sección puede seleccionar filtros y visualizar solo las imágenes que quiera. Puede hacer filtrado por el Lugar donde fue tomada la foto, por el Usuario o por algún Tag </p>
 									</section>
 									<section>
 										<form method="POST">
@@ -169,7 +166,7 @@
 												</div>
 											</div>
 											<ul class="actions">
-												<li><input type="submit" value="Search" action='/home' /></li>
+												<li><input type="submit" value="Buscar" action='/home' /></li>
 											</ul>
 										</form>
 									</section>
