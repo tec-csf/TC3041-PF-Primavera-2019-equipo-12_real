@@ -132,7 +132,7 @@ La información correspondiente a las imagen será guardada utilizando mongoDB, 
     
             gcloud docker -- push gcr.io/<PROJECT ID>/flask-api
         
-    - 2.7 Despliegue la aplicación en Google Cloud Platform:
+    - 2.7 Salga de la carpeta app (cd ..) y despliegue la aplicación:
     
             kubectl create -f proxy-api.yaml
         
