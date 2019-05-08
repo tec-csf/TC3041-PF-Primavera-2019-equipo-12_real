@@ -70,7 +70,7 @@ def home():
                 destination = "/".join([target, filename])
                 destination_db = "/".join([target_db, filename])
                 upload.save(destination)
-                split_tags = re.split('; |, | ', tags)
+                split_tags = re.split('; |, | |,|;', tags)
                 insertResult = mongodb.insertImage(username, destination_db, title, desc, lugar, split_tags)
 
         return redirect(url_for('home'))
