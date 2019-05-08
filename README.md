@@ -67,7 +67,7 @@ https://docs.mongodb.com/
 
 ### 3.2 Arquitectura de la solución
 
-
+![arquitectura_solucion](https://user-images.githubusercontent.com/21222798/57347825-45c26680-7119-11e9-8825-9d0115f7c274.JPG)
 
 ### 3.3 Frontend
 
