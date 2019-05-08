@@ -63,7 +63,7 @@ class Images(object):
 
     def delete(self, id):
         """
-        Eliminar un libro
+        Eliminar una imagen
         """
         result = self.collection.delete_one({'_id': ObjectId(id)})
 
@@ -75,4 +75,8 @@ class Images(object):
             """
         result = self.collection.delete_many({'owner': id})
         
+        return result
+    def deleteByFilter(self, query):
+        result = self.collection.delete_many(query)
+
         return result

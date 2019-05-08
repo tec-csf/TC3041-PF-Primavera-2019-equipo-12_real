@@ -51,6 +51,12 @@ class API(object):
         mongodb = images.Images()
         mongodb.deleteAll(owner)
 
+    def removeSpecificImage(self, title, owner):
+        mongodb = images.Images()
+        query = {"name":title, "owner":owner}
+
+        mongodb.deleteByFilter(query)
+
     def insertUserMongo(self, name, middlename, lastname, email):
         mongodb = users.Users()
         existe = mongodb.findOne(email)

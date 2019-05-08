@@ -81,6 +81,13 @@ def home():
         tag = request.form['Tag']
         
         data = mongodb.getByFilter(lugar,owner,tag)
+
+    if request.method == 'POST' and 'Title_borrar' in request.form:
+        titulo = request.form['Title_borrar']
+        mongodb.removeSpecificImage(titulo, username)
+        data = mongodb.get()
+
+
         
         
     for i in range(len(data)):

@@ -70,12 +70,33 @@
 								</section>
                                 <ul class="actions">
                                     <li>
-                                        <a href ='/delete' onclick="if(confirm('Are you sure you want to delete your account? All photos will be deleted!')) return true; else return false;">
+                                        <a href ='/delete' onclick="if(confirm('Estas seguro que quieres borrar tu cuenta? Todas tus imagenes seran eliminadas!')) return true; else return false;">
                                             <center>Delete Account</center>
                                         </a>
                                     </li>
                                     
                                 </ul>
+							</div>
+							<div>
+								<section>
+									<h2>Borrar Imagen</h2>
+									<head>
+										<p>Escriba el nombre de la imagen que desea borrar. Todas las imagenes que haya subido con este nombre seran eliminadas.</p>
+									</head>
+									<form id="upload-form" method="POST" enctype="multipart/form-data">
+										<div class="fields">
+											<div class="field half">
+												<input type="text" name="Title_borrar" id="title" placeholder="Titulo" />
+											</div>
+									
+										</div>
+										<ul class="actions">
+											<li><input type="reset" value="Reset" /></li>
+										</ul>
+											<input type="submit" value="Borrar" id="upload-button" action='/home'>
+									</form>
+									
+								</section>
 							</div>
                             
 						</div>
