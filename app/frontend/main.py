@@ -1,6 +1,6 @@
 from flask import Flask, request, redirect, url_for, render_template, session, jsonify
 from flask_api import FlaskAPI, status, exceptions
-from backend import api
+from api import api
 import cgi
 import os
 import jinja2

@@ -1,6 +1,6 @@
 import redis
 import hashlib, uuid
-from backend import config
+from api import config
 
 class Sessions(object):
 

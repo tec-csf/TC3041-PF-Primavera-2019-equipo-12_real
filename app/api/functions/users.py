@@ -1,7 +1,7 @@
 from pymongo import MongoClient
 from bson import ObjectId
 from flask import Flask, request, url_for, jsonify
-from backend import config
+from api import config
 
 class Users(object):
     
