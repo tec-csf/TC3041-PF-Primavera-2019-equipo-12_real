@@ -105,12 +105,12 @@ La información correspondiente a las imagen será guardada utilizando mongoDB, 
 
 * Clonar el repositorio con git clone o descargarlo.
 * Entrar a la carpeta app con el comando: 'cd app'
- - Para correrlo localmente:  
- - 2.1. Crear la imagen de docker con el comando: 'sudo docker build -t test-app:v1 .'  
- - 2.2. Ejecutar la imagen y crear un contenedor con el comando: 'sudo docker run --name amaya -p 5000:5000 test-app:v1'  
- - 2.3. Entrar al link: 'localhost:5000'  
+    - Para correrlo localmente:  
+    - 2.1. Crear la imagen de docker con el comando: 'sudo docker build -t test-app:v1 .'  
+    - 2.2. Ejecutar la imagen y crear un contenedor con el comando: 'sudo docker run --name amaya -p 5000:5000 test-app:v1'  
+    - 2.3. Entrar al link: 'localhost:5000'  
     
- - Para correrlo en la nube:  
+ - Para correrlo en la nube con google cloud platform:  
  - 2.1 Cree un proyecto en la Consola de Google Cloud Platform. Póngale el nombre y ID que usted prefiera.  
  - 2.2 Dentro de la misma consola, en el menú de la izquierda seleccione la opción Kubernetes Engine / Clústeres de Kubernetes y cree un nuevo clúster dentro del proyecto creado en el paso anterior.
  - 2.3 Una vez creado el clúster, seleccione la opción "Ejecutar" y en la ventana que aparece, seleccione el primer comando relacionado con kubectl. El comando a copiar tiene una estructura similar a la siguiente: 
