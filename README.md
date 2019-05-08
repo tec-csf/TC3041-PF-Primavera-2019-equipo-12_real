@@ -104,11 +104,17 @@ La información correspondiente a las imagen será guardada utilizando mongoDB, 
 ## 3.6 Pasos a seguir para utilizar el proyecto
 
 * Clonar el repositorio con git clone o descargarlo.
-* Entrar a la carpeta app con el comando: 'cd app'
+* Entrar a la carpeta app con el comando: 
+
+        cd app
  - Para correrlo localmente:  
-    - 2.1. Crear la imagen de docker con el comando: 'sudo docker build -t test-app:v1 .'  
-    - 2.2. Ejecutar la imagen y crear un contenedor con el comando: 'sudo docker run --name amaya -p 5000:5000 test-app:v1'  
-    - 2.3. Entrar al link: 'localhost:5000'  
+    - 2.1. Crear la imagen de docker con el comando: 
+    
+            sudo docker build -t test-app:v1 . 
+    - 2.2. Ejecutar la imagen y crear un contenedor con el comando: 
+    
+            sudo docker run --name amaya -p 5000:5000 test-app:v1  
+    - 2.3. Entrar al link: localhost:5000 
     
  - Para correrlo en la nube con google cloud platform:  
     - 2.1 Cree un proyecto en la Consola de Google Cloud Platform. Póngale el nombre y ID que usted prefiera.  
