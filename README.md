@@ -62,12 +62,12 @@ La información correspondiente a la imagen será guardada utilizando mongoDB, y
 Los modelos de bases de datos seleccionados fueron base de datos llave-valor y base de datos basado en documentos. Utilizamos redis debido a que cuenta con un gran manejo de la sesión de usuarios, redis es la base de datos llave-valor, ya que es capaz de solamente almacenar una llave, la cual cuenta con un solo valor. Esto nos provee una manera sencilla, simple y eficaz de manejar a los usuarios, guardamos el correo de cada usuario y lo relacionamos con el valor de su password. En cuando a mongodb, la base de datos basada en documentos, la utilizamos para poder guardar de manera más simple las imágenes, ya que los documentos permiten cierta flexibilidad al ser almacenados y facilitan el manejo de estos mismos, permitiéndonos guardar fotos sin ciertos valores o filtrar las fotos guardadas en base a ciertas especificaciones.
 
 Si deseas saber más acerca de mongodb o de redis, visita cualquiera de las siguientes ligas:
-https://redis.io/documentation
-https://docs.mongodb.com/
+https://redis.io/documentation  
+https://docs.mongodb.com/  
 
 ### 3.2 Arquitectura de la solución
 
-*[Incluya aquí un diagrama donde se aprecie la arquitectura de la solución propuesta, así como la interacción entre los diferentes componentes de la misma.]*
+
 
 ### 3.3 Frontend
 
