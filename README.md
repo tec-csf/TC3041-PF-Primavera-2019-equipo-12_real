@@ -103,38 +103,38 @@ La información correspondiente a las imagen será guardada utilizando mongoDB, 
 
 ## 3.6 Pasos a seguir para utilizar el proyecto
 
-1. Clonar el repositorio con git clone o descargarlo.
-2. Entrar a la carpeta app con el comando: 'cd app'
-    Para correrlo localmente:  
-    2.1. Crear la imagen de docker con el comando: 'sudo docker build -t test-app:v1 .'  
-    2.2. Ejecutar la imagen y crear un contenedor con el comando: 'sudo docker run --name amaya -p 5000:5000 test-app:v1'  
-    2.3. Entrar al link: 'localhost:5000'  
+* Clonar el repositorio con git clone o descargarlo.
+* Entrar a la carpeta app con el comando: 'cd app'
+ - Para correrlo localmente:  
+ - 2.1. Crear la imagen de docker con el comando: 'sudo docker build -t test-app:v1 .'  
+ - 2.2. Ejecutar la imagen y crear un contenedor con el comando: 'sudo docker run --name amaya -p 5000:5000 test-app:v1'  
+ - 2.3. Entrar al link: 'localhost:5000'  
     
-    Para correrlo en la nube:  
-    2.1 Cree un proyecto en la Consola de Google Cloud Platform. Póngale el nombre y ID que usted prefiera.  
-    2.2 Dentro de la misma consola, en el menú de la izquierda seleccione la opción Kubernetes Engine / Clústeres de Kubernetes y cree un nuevo clúster dentro del proyecto creado en el paso anterior.
-    2.3 Una vez creado el clúster, seleccione la opción "Ejecutar" y en la ventana que aparece, seleccione el primer comando relacionado con kubectl. El comando a copiar tiene una estructura similar a la siguiente: 
+ - Para correrlo en la nube:  
+ - 2.1 Cree un proyecto en la Consola de Google Cloud Platform. Póngale el nombre y ID que usted prefiera.  
+ - 2.2 Dentro de la misma consola, en el menú de la izquierda seleccione la opción Kubernetes Engine / Clústeres de Kubernetes y cree un nuevo clúster dentro del proyecto creado en el paso anterior.
+ - 2.3 Una vez creado el clúster, seleccione la opción "Ejecutar" y en la ventana que aparece, seleccione el primer comando relacionado con kubectl. El comando a copiar tiene una estructura similar a la siguiente: 
     
         gcloud container clusters get-credentials demo-webinar --zone us-central1-a --project <PROJECT-ID>
         
-    2.4 Ejecute el comando en una terminal de su computadora.
-    2.5 Compile la imagen del contenedor de la aplicación, sustituyendo <PROJECT ID> por el que le correponde. Este valor es el que aparece en el parámetro --project del comando ejecutado en el paso anterior:
+ - 2.4 Ejecute el comando en una terminal de su computadora.
+ - 2.5 Compile la imagen del contenedor de la aplicación, sustituyendo <PROJECT ID> por el que le correponde. Este valor es el que aparece en el parámetro --project del comando ejecutado en el paso anterior:
     
         docker build -t gcr.io/<PROJECT ID>/flask-api .
         
-    2.6 Suba la imagen del contendor al registro de su proyecto en Google Cloud Platform:
+ - 2.6 Suba la imagen del contendor al registro de su proyecto en Google Cloud Platform:
     
         gcloud docker -- push gcr.io/<PROJECT ID>/flask-api
         
-    2.7 Despliegue la aplicación en Google Cloud Platform:
+ - 2.7 Despliegue la aplicación en Google Cloud Platform:
     
         kubectl create -f proxy-api.yaml
         
-    2.8 Obtenga la URL del servicio. Ejecute varias veces este comando hasta que el valor EXTERNAL-IP se encuentre asignado:
+ - 2.8 Obtenga la URL del servicio. Ejecute varias veces este comando hasta que el valor EXTERNAL-IP se encuentre asignado:
     
         kubectl get service
         
-    2.9 Acceder a la IP obtenida 
+ - 2.9 Acceder a la IP obtenida 
     
 Para eliminar la aplicación y los servicios creados ejecute:
 
