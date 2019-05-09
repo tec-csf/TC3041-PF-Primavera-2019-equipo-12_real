@@ -24,16 +24,15 @@ A continuación, se mencionan los requerimientos técnicos mínimos del proyecto
 * Todo el código, *datasets* y la documentación del proyecto debe alojarse en un repositorio de GitHub siguiendo la estructura que aparece a continuación.
 
 ### 1.2 Estructura del repositorio
-El proyecto debe seguir la siguiente estructura de carpetas:
 ```
 - / 			        # Raíz de todo el proyecto
     - README.md			# Archivo con los datos del proyecto (este archivo)
-    - frontend			# Carpeta con la solución del frontend (Web app)
-    - backend			# Carpeta con la solución del backend (CMS)
-    - api			# Carpeta con la solución de la API
+    - app               # Carpeta con todo lo necesario para correr la aplicacion       
+        - frontend			# Carpeta con la solución del frontend (Web app)
+        - backend			# Carpeta con la solución del backend (CMS)
+        - api			# Carpeta con la solución de la API
     - datasets		        # Carpeta con los datasets y recursos utilizados (csv, json, audio, videos, entre otros)
     - dbs			# Carpeta con los modelos, catálogos y scripts necesarios para generar las bases de datos
-    - models			# Carpeta donde se almacenarán los modelos de Machine Learning ya entrenados 
     - docs			# Carpeta con la documentación del proyecto
         - stage_f               # Documentos de la entrega final
         - manuals               # Manuales y guías
@@ -59,11 +58,11 @@ La información correspondiente a la imagen será guardada utilizando mongoDB, y
 
 ### 3.1 Modelos de *bases de datos* utilizados
 
-Los modelos de bases de datos seleccionados fueron base de datos llave-valor y base de datos basado en documentos. Utilizamos redis debido a que cuenta con un gran manejo de la sesión de usuarios, redis es la base de datos llave-valor, ya que es capaz de solamente almacenar una llave, la cual cuenta con un solo valor. Esto nos provee una manera sencilla, simple y eficaz de manejar a los usuarios, guardamos el correo de cada usuario y lo relacionamos con el valor de su password. En cuando a mongodb, la base de datos basada en documentos, la utilizamos para poder guardar de manera más simple las imágenes, ya que los documentos permiten cierta flexibilidad al ser almacenados y facilitan el manejo de estos mismos, permitiéndonos guardar fotos sin ciertos valores o filtrar las fotos guardadas en base a ciertas especificaciones.
+Los modelos de bases de datos seleccionados fueron base de datos llave-valor y base de datos basado en documentos. Utilizamos redis debido a que cuenta con un gran manejo de la sesión de usuarios, redis es la base de datos llave-valor, ya que es capaz de solamente almacenar una llave, la cual cuenta con un solo valor. Esto nos provee una manera sencilla, simple y eficaz de manejar a los usuarios, guardamos el correo de cada usuario y lo relacionamos con el valor de su password. En cuando a mongodb, la base de datos basada en documentos, la utilizamos para poder guardar de manera más simple las imágenes, ya que los documentos permiten cierta flexibilidad al ser almacenados y facilitan el manejo de estos mismos, permitiéndonos guardar fotos sin ciertos valores o filtrar las fotos guardadas en base a ciertas especificaciones.  
 
-Si deseas saber más acerca de mongodb o de redis, visita cualquiera de las siguientes ligas:
-https://redis.io/documentation  
-https://docs.mongodb.com/  
+Si deseas saber más acerca de mongodb o de redis, visita cualquiera de las siguientes ligas:  
+https://redis.io/documentation    
+https://docs.mongodb.com/    
 
 ### 3.2 Arquitectura de la solución
 
