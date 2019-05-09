@@ -5,7 +5,7 @@
     "picture":"string",
     "name": "string",
     "description": "string",
-    "location": "date",
+    "location": "string",
     "tags": [
       "string"
     ]
