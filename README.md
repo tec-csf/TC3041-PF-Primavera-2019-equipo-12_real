@@ -101,7 +101,7 @@ Python, para facilitar la conexión.
 #### 3.5.2 Framework
 Flask
 
-Para el servicio en cloud, se reemplaza localhost:5000 por 35.225.166.237
+Para el servicio en alojado en GCP, se reemplaza localhost:5000 por 35.225.166.237
 
 Descripción: Login para usuarios.  
 
