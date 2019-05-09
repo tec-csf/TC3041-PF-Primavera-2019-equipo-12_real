@@ -1,6 +1,6 @@
 import redis
 import hashlib, uuid
-from api import config
+from app import config
 
 class Sessions(object):
 

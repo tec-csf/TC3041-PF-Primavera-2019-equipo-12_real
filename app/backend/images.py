@@ -1,7 +1,7 @@
 from pymongo import MongoClient
 from bson import ObjectId
 from flask import Flask, request, url_for, jsonify
-from api import config
+from app import config
 
 class Images(object):
 

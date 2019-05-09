@@ -1,6 +1,6 @@
-from .functions import images
-from .functions import users
-from .functions import sessions
+from app.backend import images
+from app.backend import users
+from app.backend import sessions
 
 class API(object):
 
