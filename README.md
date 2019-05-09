@@ -27,7 +27,7 @@ A continuación, se mencionan los requerimientos técnicos mínimos del proyecto
 ```
 - / 			        # Raíz de todo el proyecto
     - README.md			# Archivo con los datos del proyecto (este archivo)
-    - app               # Carpeta con todo lo necesario para correr la aplicacion       
+    - app                      # Carpeta con todo lo necesario para correr la aplicacion       
         - frontend			# Carpeta con la solución del frontend (Web app)
         - backend			# Carpeta con la solución del backend (CMS)
         - api			# Carpeta con la solución de la API
