@@ -31,7 +31,7 @@ A continuación, se mencionan los requerimientos técnicos mínimos del proyecto
     - app                       # Carpeta con todo lo necesario para correr la aplicacion       
         - frontend			# Carpeta con la solución del frontend (Web app)
         - backend			# Carpeta con la solución del backend (CMS)
-        - api			    # Carpeta con la solución de la API
+        - api			        # Carpeta con la solución de la API
     - datasets		        # Carpeta con los datasets y recursos utilizados (csv, json, audio, videos, entre otros)
     - dbs			# Carpeta con los modelos, catálogos y scripts necesarios para generar las bases de datos
     - docs			# Carpeta con la documentación del proyecto
