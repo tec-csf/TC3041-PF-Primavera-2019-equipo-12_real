@@ -1,5 +1,5 @@
 // Session
 {
-  "user": email, 
-  "password":hash(sha256)
+  "user": "string-email", 
+  "password":"string-hash(sha256)"
 }
