@@ -101,6 +101,32 @@ Python, para facilitar la conexión.
 #### 3.5.2 Framework
 Flask
 
+Para el servicio en cloud, se reemplaza localhost:5000 por 35.225.166.237
+
+Descripción: Login para usuarios.
+
+URL: localhost:5000/
+Verbos HTTP: Get y Post
+Headers: Ninguno
+Formato JSON del cuerpo de la solicitud: {"username":"user_input", "password":"user_input"}
+Formato JSON de la respuesta: {}
+
+Descripción: Dashboard principal para usuarios.
+
+URL: localhost:5000/home
+Verbos HTTP: Get y Post
+Headers: Ninguno
+Formato JSON del cuerpo de la solicitud: {"titulo":"user_input", "lugar":"user_input", "descripcion":"user_input", "imagen":"user_input"}
+Formato JSON de la respuesta: {}
+
+Descripción: SignUp para usuarios.
+
+URL: localhost:5000/signUp
+Verbos HTTP: Get y Post
+Headers: Ninguno
+Formato JSON del cuerpo de la solicitud: {"nombre":"user_input", "apellido_materno":"user_input", "apellido_paterno":"user_input", "email":"user_input", "password":"user_input"}
+Formato JSON de la respuesta: {}
+
 
 ## 3.6 Pasos a seguir para utilizar el proyecto
 
